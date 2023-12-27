@@ -15,7 +15,7 @@ terraform {
 }
 
 resource "null_resource" "gke-get-credential" {
-  depends_on = [gke_cluster]
+  depends_on = [module.gke_cluster]
   provisioner "local-exec" {
     command = "gcloud container clusters get-credentials ${var.GKE_CLUSTER_NAME} --zone ${var.GOOGLE_REGION} --project ${var.GOOGLE_PROJECT}"
   }
