@@ -44,5 +44,5 @@ provider "flux" {
 
 resource "flux_bootstrap_git" "this" {
   path       = var.target_path
-  depends_on = [module.git_repo, module.k3d_cluster, module.tls_private_key]
+  depends_on = [module.git_repo, module.gke_cluster, module.tls_private_key]
 }

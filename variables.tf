@@ -1,11 +1,11 @@
 variable "GOOGLE_PROJECT" {
-  default = "flux.cluster"
+  default     = "flux.cluster"
   type        = string
   description = "GCP project name"
 }
 
 variable "GOOGLE_REGION" {
-  default = "us-central1-c"
+  default     = "us-central1-c"
   type        = string
   description = "GCP region to use"
 }
