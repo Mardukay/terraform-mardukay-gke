@@ -14,6 +14,13 @@ terraform {
   }
 }
 
+resource "null_resource" "gke-get-credential" {
+  depends_on = [gke_cluster]
+  provisioner "local-exec" {
+    command = "gcloud container clusters get-credentials ${var.GKE_CLUSTER_NAME} --zone ${var.GOOGLE_REGION} --project ${var.GOOGLE_PROJECT}"
+  }
+}
+
 #create github repository for flux
 module "git_repo" {
   source                   = "github.com/den-vasyliev/tf-github-repository"
@@ -46,5 +53,5 @@ provider "flux" {
 
 resource "flux_bootstrap_git" "this" {
   path       = var.target_path
-  depends_on = [module.git_repo, module.gke_cluster, module.tls_private_key]
+  depends_on = [module.git_repo, module.gke_cluster, module.tls_private_key, null_resource.gke-get-credential]
 }
