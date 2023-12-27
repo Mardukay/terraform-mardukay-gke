@@ -10,6 +10,18 @@ variable "GOOGLE_REGION" {
   description = "GCP region to use"
 }
 
+variable "GKE_CLUSTER_NAME" {
+  type        = string
+  default     = "flux"
+  description = "GKE cluster name"
+}
+
+variable "GKE_POOL_NAME" {
+  type        = string
+  default     = "flux"
+  description = "GKE pool name"
+}
+
 variable "GITHUB_OWNER" {
   type        = string
   description = "The GitHub owner"
