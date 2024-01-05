@@ -63,7 +63,7 @@ module "kubernetes-engine_workload-identity" {
   name = "kustomize-controller"
   namespace = "flux-system"
   project_id = var.GOOGLE_PROJECT
-  cluster-name = var.GKE_CLUSTER_NAME
+  cluster_name = var.GKE_CLUSTER_NAME
   location = var.GOOGLE_REGION
   annotate_k8s_sa = true
   roles = ["roles/cloudkms.cryptoKeyEncrypterDecrypter"]
