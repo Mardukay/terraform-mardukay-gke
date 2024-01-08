@@ -1,5 +1,5 @@
 variable "GOOGLE_PROJECT" {
-  default     = "flux-cluster"
+  default     = "flux"
   type        = string
   description = "GCP project name"
 }
