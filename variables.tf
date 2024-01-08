@@ -1,5 +1,5 @@
 variable "GOOGLE_PROJECT" {
-  default     = "flux"
+  default     = "flux-kbot"
   type        = string
   description = "GCP project name"
 }
