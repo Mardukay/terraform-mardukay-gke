@@ -68,9 +68,7 @@ module "kubernetes-engine_workload-identity" {
   location = var.GOOGLE_REGION
   annotate_k8s_sa = true
   roles = ["roles/cloudkms.cryptoKeyEncrypterDecrypter"]
-  tags = {
-    dep_wi = var.dep
-  }
+  module_depends_on = [flux_bootstrap_git.this, module.kms]
 }
 
 module "kms" {
