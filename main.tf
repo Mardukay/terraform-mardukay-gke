@@ -53,7 +53,6 @@ provider "flux" {
 
 resource "flux_bootstrap_git" "this" {
   path       = var.target_path
-  dep        = "true"
   depends_on = [module.git_repo, module.gke_cluster, module.tls_private_key, null_resource.gke-get-credential]
 }
 
