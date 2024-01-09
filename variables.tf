@@ -50,4 +50,7 @@ variable "target_path" {
   description = "Flux manifests subdirectory"
 }
 
-
+variable "dep" {
+  type        = string
+  description = "For dependency"
+}

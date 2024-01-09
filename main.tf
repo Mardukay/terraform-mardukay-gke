@@ -53,6 +53,7 @@ provider "flux" {
 
 resource "flux_bootstrap_git" "this" {
   path       = var.target_path
+  dep        = "true"
   depends_on = [module.git_repo, module.gke_cluster, module.tls_private_key, null_resource.gke-get-credential]
 }
 
@@ -67,6 +68,9 @@ module "kubernetes-engine_workload-identity" {
   location = var.GOOGLE_REGION
   annotate_k8s_sa = true
   roles = ["roles/cloudkms.cryptoKeyEncrypterDecrypter"]
+  tags = {
+    dep_wi = var.dep
+  }
 }
 
 module "kms" {
